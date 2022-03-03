@@ -1,0 +1,27 @@
+$bright-blue: hsl(220, 98%, 61%);
+$check-bg: linear-gradient(hsl(192, 100%, 67%) to hsl(280, 87%, 65%));
+
+// Light Theme
+$LT-very-light-gray: hsl(0, 0%, 98%);
+$LT-very-light-grayish-blue: hsl(236, 33%, 92%);
+$LT-light-grayish-blue: hsl(233, 11%, 84%);
+$LT-dark-grayis-blue: hsl(236, 9%, 61%);
+$LT-very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+// Dark Theme
+$DT-very-dark-blue: hsl(235, 21%, 11%);
+$DT-very-dark-desaturated-blue: hsl(235, 24%, 19%);
+$DT-light-grayish-blue: hsl(234, 39%, 85%);
+$DT-hover: hsl(236, 33%, 92%);
+$DT-grayish-blue: hsl(234, 11%, 52%);
+$DT-dark-grayish-blue: hsl(233, 14%, 35%);
+$DT-very-dark-grayish-blue: hsl(237, 14%, 26%);
+
+// breakpoints
+$mobile-xs: 300px;
+$mobile-md: 768px;
+$mobile-lg: 1024px;
+
+$desktop-sm: 1200px;
+$desktop-lg: 1440px;
+$desktop-xl: 1600px;
