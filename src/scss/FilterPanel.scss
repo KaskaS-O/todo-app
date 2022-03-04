@@ -1,0 +1,19 @@
+.filter-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 6%;
+  padding: 0 15%;
+  height: $element-height-mobile;
+  border-radius: $border-radius;
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  &.dark {
+    @include dark-elements;
+  }
+
+  &.light {
+    @include light-elements;
+  }
+}

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import CreateTaskPanel from "./CreateTaskPanel";
 import TaskList from "./TaskList";
-import FilterPanel from "./FilterPanel";
 import { ReactComponent as Sun } from "../images/icon-sun.svg";
 import { ReactComponent as Moon } from "../images/icon-moon.svg";
 
@@ -17,19 +16,21 @@ class App extends Component {
       { title: "Do something creative", active: false },
       { title: "Rest", active: true },
     ],
+    theme: "dark",
   };
   render() {
     return (
       <>
-        <h1 className="title">TODO</h1>
-        <div className="theme-toggle">
-          <Sun />
-          <Moon />
-        </div>
+        <header className="header dark">
+          <h1 className="header__title">TODO</h1>
+          <div className="header__theme-toggle">
+            <Sun className="header__icon" id="sun" />
+            <Moon className="header__icon" id="moon" />
+          </div>
+        </header>
         <CreateTaskPanel />
         <TaskList tasks={this.state.tasks} />
-        <FilterPanel />
-        <p className="txt txt--gray">Drag and drop to reorder list</p>
+        <p className="txt">Drag and drop to reorder list</p>
         <footer className="attribution">
           Challenge by
           <a href="https://www.frontendmentor.io?ref=challenge">

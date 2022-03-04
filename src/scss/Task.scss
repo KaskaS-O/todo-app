@@ -1,0 +1,84 @@
+.task {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  height: $li-height-mobile;
+  font-size: 1.1rem;
+
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  &__checkmark {
+    position: relative;
+    display: block;
+    height: $checkbox-mobile;
+    width: $checkbox-mobile;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: inherit;
+
+    &:after {
+      //   content: url(../images/icon-check.svg);
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%) rotate(45deg);
+      width: 3px;
+      height: 6px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      display: none;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    cursor: pointer;
+
+    input:checked ~ .task__checkmark {
+      background: $check-bg;
+    }
+
+    input:checked ~ .task__checkmark:after {
+      display: block;
+    }
+  }
+
+  &__delete {
+    height: $checkbox-mobile * 0.6;
+    width: $checkbox-mobile * 0.6;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &.dark {
+    border-bottom: 1px solid;
+    @include dark-border;
+
+    .task__checkmark {
+      border: 1px solid;
+      @include dark-border;
+    }
+  }
+
+  &.light {
+    border-bottom: 1px solid;
+    @include light-border;
+
+    .task__checkmark {
+      border: 1px solid;
+      @include light-border;
+    }
+  }
+}

@@ -1,10 +1,22 @@
 @import "normalize";
 @import "variables";
+@import "App";
+@import "CreateTaskPanel";
+@import "TaskList";
+@import "Task";
+@import "TaskManage";
+@import "FilterPanel";
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
+.page {
+  &.dark {
+    @include dark-page;
+  }
+
+  &.light {
+    @include light-page;
+  }
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
+
+.active {
+  color: $bright-blue;
 }

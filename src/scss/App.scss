@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12% 6%;
+  height: 200px;
+  background-size: cover;
+
+  &__title {
+    color: white;
+    font-size: $header-mobile-s;
+    font-weight: 700;
+    letter-spacing: 10px;
+  }
+
+  &__theme-toggle {
+    height: $header-mobile-s;
+    width: $header-mobile-s;
+  }
+
+  &__icon {
+    height: 100%;
+    width: 100%;
+  }
+
+  #sun {
+    display: block;
+  }
+
+  #moon {
+    display: none;
+  }
+
+  &.dark {
+    @include dark-header;
+  }
+
+  &.light {
+    @include light-header;
+  }
+}
+
+.txt {
+  padding: 12% 0 5%;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.attribution {
+  padding: 5% 0;
+  text-align: center;
+}
+.attribution a {
+  color: $bright-blue;
+}

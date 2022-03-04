@@ -1,12 +1,17 @@
 import React from "react";
-import { ReactComponent as Cross } from "../images/icon-cross.svg";
+import img from "../images/icon-cross.svg";
 
 const Task = (props) => {
   return (
-    <li className="task-list__task task">
-      <input className="task__checkbox" type="checkbox" />
-      <span className="task__title txt txt--white">{props.title}</span>
-      <Cross className="task__delete" />
+    <li className="task-list__task task dark">
+      <label className="task__title">
+        <input className="task__checkbox" type="checkbox" />
+        <span class="task__checkmark"></span>
+        {props.title}
+      </label>
+      <div className="task__delete">
+        <img src={img} alt="close" />
+      </div>
     </li>
   );
 };

@@ -1,11 +1,11 @@
 $bright-blue: hsl(220, 98%, 61%);
-$check-bg: linear-gradient(hsl(192, 100%, 67%) to hsl(280, 87%, 65%));
+$check-bg: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 
 // Light Theme
 $LT-very-light-gray: hsl(0, 0%, 98%);
 $LT-very-light-grayish-blue: hsl(236, 33%, 92%);
 $LT-light-grayish-blue: hsl(233, 11%, 84%);
-$LT-dark-grayis-blue: hsl(236, 9%, 61%);
+$LT-dark-grayish-blue: hsl(236, 9%, 61%);
 $LT-very-dark-grayish-blue: hsl(235, 19%, 35%);
 
 // Dark Theme
@@ -17,6 +17,16 @@ $DT-grayish-blue: hsl(234, 11%, 52%);
 $DT-dark-grayish-blue: hsl(233, 14%, 35%);
 $DT-very-dark-grayish-blue: hsl(237, 14%, 26%);
 
+// sizes
+$header-mobile-s: 2.6rem;
+
+$element-height-mobile: 46px;
+$li-height-mobile: 54px;
+
+$border-radius: 5px;
+
+$checkbox-mobile: 20px;
+
 // breakpoints
 $mobile-xs: 300px;
 $mobile-md: 768px;
@@ -25,3 +35,51 @@ $mobile-lg: 1024px;
 $desktop-sm: 1200px;
 $desktop-lg: 1440px;
 $desktop-xl: 1600px;
+
+// mixins
+
+@mixin dark-page {
+  background-color: $DT-very-dark-blue;
+  color: $DT-dark-grayish-blue;
+}
+
+@mixin light-page {
+  background-color: $LT-very-light-grayish-blue;
+  color: $LT-dark-grayish-blue;
+}
+
+@mixin dark-header {
+  background-image: url(../images/bg-mobile-dark.jpg);
+}
+
+@mixin light-header {
+  background-image: url(../images/bg-mobile-light.jpg);
+}
+
+@mixin dark-list {
+  background-color: $DT-very-dark-desaturated-blue;
+  color: $DT-light-grayish-blue;
+}
+
+@mixin light-list {
+  background-color: $LT-very-light-gray;
+  color: $LT-very-dark-grayish-blue;
+}
+
+@mixin dark-elements {
+  background-color: $DT-very-dark-desaturated-blue;
+  color: $DT-dark-grayish-blue;
+}
+
+@mixin light-elements {
+  background-color: $LT-very-light-gray;
+  color: $LT-dark-grayish-blue;
+}
+
+@mixin dark-border {
+  border-color: $DT-very-dark-grayish-blue;
+}
+
+@mixin light-border {
+  border-color: $LT-dark-grayish-blue;
+}

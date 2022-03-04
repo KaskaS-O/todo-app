@@ -1,0 +1,25 @@
+.manage-tasks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $li-height-mobile;
+  padding: 0 20px;
+
+  &__active {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  &__clear {
+    border: none;
+    background-color: inherit;
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  &.dark {
+    @include dark-elements;
+  }
+}
