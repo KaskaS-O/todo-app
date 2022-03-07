@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 10px 10px 20px;
   height: $li-height-mobile;
   font-size: 1.1rem;
 
@@ -53,12 +53,12 @@
   }
 
   &__delete {
-    height: $checkbox-mobile * 0.6;
-    width: $checkbox-mobile * 0.6;
+    padding: 10px;
 
     img {
-      height: 100%;
-      width: 100%;
+      display: block;
+      height: $checkbox-mobile * 0.6;
+      width: $checkbox-mobile * 0.6;
     }
   }
 

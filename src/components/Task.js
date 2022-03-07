@@ -3,14 +3,14 @@ import img from "../images/icon-cross.svg";
 
 const Task = (props) => {
   return (
-    <li className="task-list__task task dark">
+    <li className={`task-list__task task ${props.theme ? "dark" : "light"}`}>
       <label className="task__title">
         <input className="task__checkbox" type="checkbox" />
-        <span class="task__checkmark"></span>
+        <span className="task__checkmark"></span>
         {props.title}
       </label>
-      <div className="task__delete">
-        <img src={img} alt="close" />
+      <div className="task__delete" onClick={() => props.delete(props.title)}>
+        <img src={img} alt="delete" />
       </div>
     </li>
   );

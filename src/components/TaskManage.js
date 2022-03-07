@@ -1,9 +1,15 @@
 import React from "react";
 
-const TaskManage = () => {
+const TaskManage = (props) => {
+  const activeTasks = props.tasks.filter((task) => task.active);
+
   return (
-    <div className="task-list__manage-tasks manage-tasks dark">
-      <span className="manage-tasks__active">Liczba zadań</span>
+    <div
+      className={`task-list__manage-tasks manage-tasks ${
+        props.theme ? "dark" : "light"
+      }`}
+    >
+      <span className="manage-tasks__active">{`${activeTasks.length} items left`}</span>
       <button className="manage-tasks__clear">Clear Completed</button>
     </div>
   );

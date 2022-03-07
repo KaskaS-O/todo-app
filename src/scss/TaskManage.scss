@@ -22,4 +22,8 @@
   &.dark {
     @include dark-elements;
   }
+
+  &.light {
+    @include light-elements;
+  }
 }

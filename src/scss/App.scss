@@ -22,13 +22,13 @@
     width: 100%;
   }
 
-  #sun {
-    display: block;
-  }
+  // #sun {
+  //   display: block;
+  // }
 
-  #moon {
-    display: none;
-  }
+  // #moon {
+  //   display: none;
+  // }
 
   &.dark {
     @include dark-header;
@@ -36,6 +36,63 @@
 
   &.light {
     @include light-header;
+  }
+}
+
+.create-todo {
+  display: flex;
+  height: $element-height-mobile;
+  margin: -90px 6% 0;
+  border-radius: $border-radius;
+
+  &__btn {
+    border: none;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    padding: 0 10px 0 20px;
+    background-color: inherit;
+  }
+
+  &__icon {
+    width: $checkbox-mobile;
+    height: $checkbox-mobile;
+    border-radius: 50%;
+    border: 1px solid;
+  }
+
+  &__input {
+    flex-grow: 1;
+    border: none;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    background-color: inherit;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: inherit;
+  }
+
+  &.dark {
+    @include dark-elements;
+
+    input:focus {
+      color: $DT-light-grayish-blue;
+    }
+
+    .create-todo__icon {
+      @include dark-border;
+    }
+  }
+
+  &.light {
+    @include light-elements;
+
+    input:focus {
+      color: $LT-dark-grayish-blue;
+    }
+
+    .create-todo__icon {
+      @include light-border;
+    }
   }
 }
 
