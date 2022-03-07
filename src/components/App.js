@@ -51,7 +51,8 @@ class App extends Component {
 
   deleteTask(title) {
     let tasks = this.state.tasks;
-    const toDelete = tasks.find((task) => task.title === title);
+    const toDelete = tasks.findIndex((task) => task.title === title);
+
     tasks.splice(toDelete, 1);
     this.setState({
       tasks,
