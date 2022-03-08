@@ -17,8 +17,15 @@ class App extends Component {
     ],
     newTask: "",
     filteredTasks: "",
+
     isThemeDark: true,
   };
+
+  filters = [
+    { title: "All", id: "allTasks", selected: false },
+    { title: "Active", id: "activeTasks", selected: false },
+    { title: "Completed", id: "completedTasks", selected: false },
+  ];
 
   changeTheme() {
     this.setState({
@@ -72,7 +79,13 @@ class App extends Component {
   filterTaskList(e) {
     const selectedFilter = e.target;
     let filteredTasks = this.state.tasks;
-
+    this.filters.forEach((filter) => {
+      if (selectedFilter.id === filter.id) {
+        filter.selected = true;
+      } else {
+        filter.selected = false;
+      }
+    });
     if (selectedFilter.id === "allTasks") {
       filteredTasks = this.state.tasks;
     } else if (selectedFilter.id === "activeTasks") {
@@ -128,6 +141,7 @@ class App extends Component {
         <TaskList
           tasks={this.state.tasks}
           filteredTasks={this.state.filteredTasks}
+          filters={this.filters}
           theme={this.state.isThemeDark}
           delete={this.deleteTask.bind(this)}
           checkbox={this.handleCheckbox.bind(this)}

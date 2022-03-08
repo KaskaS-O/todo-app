@@ -1,9 +1,20 @@
 import React from "react";
 
 const FilterPanel = (props) => {
+  const filters = props.filters.map((filter) => (
+    <span
+      className={`filter-panel__filter ${filter.selected ? "selected" : null}`}
+      key={filter.id}
+      id={filter.id}
+      onClick={props.filter}
+    >
+      {filter.title}
+    </span>
+  ));
   return (
     <div className={`filter-panel ${props.theme ? "dark" : "light"}`}>
-      <span
+      {filters}
+      {/* <span
         className="filter-panel__filter"
         id="allTasks"
         onClick={props.filter}
@@ -23,7 +34,7 @@ const FilterPanel = (props) => {
         onClick={props.filter}
       >
         Completed
-      </span>
+      </span> */}
     </div>
   );
 };

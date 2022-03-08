@@ -4,9 +4,9 @@ import img from "../images/icon-cross.svg";
 const Task = (props) => {
   return (
     <li
-      className={`task-list__task task ${props.theme ? "dark" : "light"} ${
-        props.active ? null : "done"
-      }`}
+      className={`task-list__task task  
+      ${props.theme ? "dark" : "light"} 
+      ${props.active ? null : "done"}`}
     >
       <label className="task__title">
         <input

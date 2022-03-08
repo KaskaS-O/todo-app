@@ -22,14 +22,6 @@
     width: 100%;
   }
 
-  // #sun {
-  //   display: block;
-  // }
-
-  // #moon {
-  //   display: none;
-  // }
-
   &.dark {
     @include dark-header;
   }
@@ -97,13 +89,17 @@
 }
 
 .txt {
-  padding: 12% 0 5%;
+  padding: 12% 0 15%;
   text-align: center;
   font-size: 1.3rem;
   font-weight: 700;
 }
 
 .attribution {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 5% 0;
   text-align: center;
 }
