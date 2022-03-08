@@ -16,6 +16,7 @@ class App extends Component {
       { title: "Rest", active: true },
     ],
     newTask: "",
+    filteredTasks: "",
     isThemeDark: true,
   };
 
@@ -59,6 +60,38 @@ class App extends Component {
     });
   }
 
+  handleCheckbox(title) {
+    const tasks = this.state.tasks;
+    const index = tasks.findIndex((task) => task.title === title);
+    tasks[index].active = !tasks[index].active;
+    this.setState({
+      tasks,
+    });
+  }
+
+  filterTaskList(e) {
+    const selectedFilter = e.target;
+    let filteredTasks = this.state.tasks;
+
+    if (selectedFilter.id === "allTasks") {
+      filteredTasks = this.state.tasks;
+    } else if (selectedFilter.id === "activeTasks") {
+      filteredTasks = filteredTasks.filter((task) => task.active);
+    } else if (selectedFilter.id === "completedTasks") {
+      filteredTasks = filteredTasks.filter((task) => !task.active);
+    }
+    this.setState({
+      filteredTasks,
+    });
+  }
+
+  clearCompleted() {
+    const tasks = this.state.tasks.filter((task) => task.active);
+    this.setState({
+      tasks,
+    });
+  }
+
   render() {
     return (
       <div className={`page ${this.state.isThemeDark ? "dark" : "light"}`}>
@@ -94,8 +127,12 @@ class App extends Component {
         </form>
         <TaskList
           tasks={this.state.tasks}
+          filteredTasks={this.state.filteredTasks}
           theme={this.state.isThemeDark}
           delete={this.deleteTask.bind(this)}
+          checkbox={this.handleCheckbox.bind(this)}
+          filter={this.filterTaskList.bind(this)}
+          clearCompleted={this.clearCompleted.bind(this)}
         />
         <p className="txt">Drag and drop to reorder list</p>
         <footer className="attribution">

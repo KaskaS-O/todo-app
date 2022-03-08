@@ -10,7 +10,9 @@ const TaskManage = (props) => {
       }`}
     >
       <span className="manage-tasks__active">{`${activeTasks.length} items left`}</span>
-      <button className="manage-tasks__clear">Clear Completed</button>
+      <button className="manage-tasks__clear" onClick={props.clearCompleted}>
+        Clear Completed
+      </button>
     </div>
   );
 };

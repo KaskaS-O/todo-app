@@ -66,6 +66,14 @@ $desktop-xl: 1600px;
   color: $LT-very-dark-grayish-blue;
 }
 
+@mixin dark-done {
+  color: $DT-grayish-blue;
+}
+
+@mixin light-done {
+  color: $LT-light-grayish-blue;
+}
+
 @mixin dark-elements {
   background-color: $DT-very-dark-desaturated-blue;
   color: $DT-dark-grayish-blue;

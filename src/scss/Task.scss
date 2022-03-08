@@ -42,14 +42,6 @@
     align-items: center;
     flex-grow: 1;
     cursor: pointer;
-
-    input:checked ~ .task__checkmark {
-      background: $check-bg;
-    }
-
-    input:checked ~ .task__checkmark:after {
-      display: block;
-    }
   }
 
   &__delete {
@@ -59,6 +51,26 @@
       display: block;
       height: $checkbox-mobile * 0.6;
       width: $checkbox-mobile * 0.6;
+    }
+  }
+
+  &.done {
+    text-decoration: line-through;
+
+    .task__checkmark {
+      background: $check-bg;
+    }
+
+    .task__checkmark:after {
+      display: block;
+    }
+
+    &.dark {
+      @include dark-done;
+    }
+
+    &.light {
+      @include light-done;
     }
   }
 
