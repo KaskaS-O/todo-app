@@ -10,6 +10,12 @@
     height: $element-height-desktop;
   }
 
+  &:hover {
+    .task__delete {
+      display: block;
+    }
+  }
+
   &__checkbox {
     position: absolute;
     opacity: 0;
@@ -26,8 +32,12 @@
     border-radius: 50%;
     background-color: inherit;
 
-    &:after {
-      //   content: url(../images/icon-check.svg);
+    @media (min-width: $desktop-sm) {
+      height: $checkbox-desktop;
+      width: $checkbox-desktop;
+    }
+
+    &::after {
       content: "";
       position: absolute;
       top: 50%;
@@ -39,22 +49,51 @@
       border-width: 0 2px 2px 0;
       display: none;
     }
+
+    &:hover {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50px;
+        padding: 1px;
+        background: $check-bg;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+      }
+    }
   }
 
   &__title {
     display: flex;
     align-items: center;
     flex-grow: 1;
-    cursor: pointer;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__delete {
     padding: 10px;
 
+    @media (min-width: $desktop-sm) {
+      display: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
     img {
       display: block;
-      height: $checkbox-mobile * 0.6;
-      width: $checkbox-mobile * 0.6;
+      height: $checkbox-mobile * 0.8;
+      width: $checkbox-mobile * 0.8;
     }
   }
 
@@ -65,7 +104,7 @@
       background: $check-bg;
     }
 
-    .task__checkmark:after {
+    .task__checkmark::after {
       display: block;
     }
 

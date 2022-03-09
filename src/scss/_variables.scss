@@ -28,6 +28,7 @@ $li-height-mobile: 54px;
 $border-radius: 5px;
 
 $checkbox-mobile: 20px;
+$checkbox-desktop: 24px;
 
 // breakpoints
 $mobile-xs: 300px;
@@ -91,7 +92,7 @@ $desktop-xl: 1600px;
 
 @mixin light-elements {
   background-color: $LT-very-light-gray;
-  color: $LT-dark-grayish-blue;
+  color: $LT-light-grayish-blue;
 }
 
 @mixin dark-border {

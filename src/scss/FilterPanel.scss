@@ -12,6 +12,10 @@
   font-size: 1.4rem;
   font-weight: 700;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   @media (min-width: $mobile-md) {
     padding: 0 30%;
   }
@@ -32,9 +36,19 @@
 
   &.dark {
     @include dark-elements;
+    .filter-panel__filter {
+      &:hover {
+        color: $DT-hover;
+      }
+    }
   }
 
   &.light {
-    @include light-elements;
+    color: $LT-dark-grayish-blue;
+    .filter-panel__filter {
+      &:hover {
+        color: $LT-very-dark-grayish-blue;
+      }
+    }
   }
 }

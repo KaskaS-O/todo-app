@@ -25,6 +25,11 @@
     color: inherit;
     font-size: 1.1rem;
     font-weight: 700;
+
+    &:hover {
+      cursor: pointer;
+    }
+
     @media (min-width: $desktop-lg) {
       font-size: 1rem;
     }
@@ -32,9 +37,21 @@
 
   &.dark {
     @include dark-elements;
+
+    .manage-tasks__clear {
+      &:hover {
+        color: $DT-hover;
+      }
+    }
   }
 
   &.light {
     @include light-elements;
+
+    .manage-tasks__clear {
+      &:hover {
+        color: $LT-dark-grayish-blue;
+      }
+    }
   }
 }

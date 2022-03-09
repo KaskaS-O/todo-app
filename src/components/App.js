@@ -22,7 +22,7 @@ class App extends Component {
   };
 
   filters = [
-    { title: "All", id: "allTasks", selected: false },
+    { title: "All", id: "allTasks", selected: true },
     { title: "Active", id: "activeTasks", selected: false },
     { title: "Completed", id: "completedTasks", selected: false },
   ];

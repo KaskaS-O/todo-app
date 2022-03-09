@@ -44,6 +44,10 @@
     height: $header-mobile;
     width: $header-mobile;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     @media (min-width: $desktop-sm) {
       height: $header-desktop;
       width: $header-desktop;
@@ -99,13 +103,39 @@
     border-bottom-left-radius: inherit;
     padding: 0 10px 0 20px;
     background-color: inherit;
+
+    &:hover {
+      cursor: pointer;
+
+      .create-todo__icon::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50px;
+        padding: 1px;
+        background: $check-bg;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+      }
+    }
   }
 
   &__icon {
+    position: relative;
     width: $checkbox-mobile;
     height: $checkbox-mobile;
     border-radius: 50%;
     border: 1px solid;
+
+    @media (min-width: $desktop-sm) {
+      width: $checkbox-desktop;
+      height: $checkbox-desktop;
+    }
   }
 
   &__input {
@@ -135,7 +165,7 @@
     @include light-elements;
 
     input:focus {
-      color: $LT-dark-grayish-blue;
+      color: $LT-very-dark-grayish-blue;
     }
 
     .create-todo__icon {
