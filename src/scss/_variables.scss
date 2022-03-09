@@ -18,9 +18,11 @@ $DT-dark-grayish-blue: hsl(233, 14%, 35%);
 $DT-very-dark-grayish-blue: hsl(237, 14%, 26%);
 
 // sizes
-$header-mobile-s: 2.6rem;
+$header-mobile: 2.6rem;
+$header-desktop: 2.8rem;
 
 $element-height-mobile: 46px;
+$element-height-desktop: 60px;
 $li-height-mobile: 54px;
 
 $border-radius: 5px;
@@ -50,10 +52,18 @@ $desktop-xl: 1600px;
 
 @mixin dark-header {
   background-image: url(../images/bg-mobile-dark.jpg);
+
+  @media (min-width: $desktop-sm) {
+    background-image: url(../images/bg-desktop-dark.jpg);
+  }
 }
 
 @mixin light-header {
   background-image: url(../images/bg-mobile-light.jpg);
+
+  @media (min-width: $desktop-sm) {
+    background-image: url(../images/bg-desktop-light.jpg);
+  }
 }
 
 @mixin dark-list {

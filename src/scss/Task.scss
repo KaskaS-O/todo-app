@@ -6,6 +6,10 @@
   height: $li-height-mobile;
   font-size: 1.1rem;
 
+  @media (min-width: $desktop-sm) {
+    height: $element-height-desktop;
+  }
+
   &__checkbox {
     position: absolute;
     opacity: 0;

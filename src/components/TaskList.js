@@ -38,13 +38,13 @@ const TaskList = (props) => {
           theme={props.theme}
           clearCompleted={props.clearCompleted}
         />
+        <FilterPanel
+          tasks={props.tasks}
+          filters={props.filters}
+          theme={props.theme}
+          filter={props.filter}
+        />
       </div>
-      <FilterPanel
-        tasks={props.tasks}
-        filters={props.filters}
-        theme={props.theme}
-        filter={props.filter}
-      />
     </>
   );
 };

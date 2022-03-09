@@ -5,16 +5,49 @@
   height: 200px;
   background-size: cover;
 
+  @media (min-width: $mobile-md) {
+    height: 300px;
+    padding: 10%;
+  }
+
+  @media (min-width: $mobile-lg) {
+    padding: 8% 15% 10%;
+  }
+
+  @media (min-width: $desktop-sm) {
+    height: 320px;
+    padding: 7% 25%;
+  }
+
+  @media (min-width: $desktop-lg) {
+    padding: 5% 30%;
+  }
+
+  @media (min-width: $desktop-xl) {
+    height: 350px;
+    padding: 5% 35%;
+  }
+
   &__title {
     color: white;
-    font-size: $header-mobile-s;
+    font-size: $header-mobile;
     font-weight: 700;
     letter-spacing: 10px;
+
+    @media (min-width: $desktop-sm) {
+      font-size: $header-desktop;
+      letter-spacing: 14px;
+    }
   }
 
   &__theme-toggle {
-    height: $header-mobile-s;
-    width: $header-mobile-s;
+    height: $header-mobile;
+    width: $header-mobile;
+
+    @media (min-width: $desktop-sm) {
+      height: $header-desktop;
+      width: $header-desktop;
+    }
   }
 
   &__icon {
@@ -36,6 +69,29 @@
   height: $element-height-mobile;
   margin: -90px 6% 0;
   border-radius: $border-radius;
+
+  @media (min-width: $mobile-md) {
+    margin: -120px 10% 0;
+    height: $li-height-mobile;
+  }
+
+  @media (min-width: $mobile-lg) {
+    margin: -120px 15% 0;
+  }
+
+  @media (min-width: $desktop-sm) {
+    margin: -140px 25% 0;
+
+    height: $element-height-desktop;
+  }
+
+  @media (min-width: $desktop-lg) {
+    margin: -160px 30% 0;
+  }
+
+  @media (min-width: $desktop-xl) {
+    margin: -140px 35% 0;
+  }
 
   &__btn {
     border: none;
@@ -89,10 +145,19 @@
 }
 
 .txt {
-  padding: 12% 0 15%;
+  padding: 20% 0 15%;
   text-align: center;
   font-size: 1.3rem;
   font-weight: 700;
+
+  @media (min-width: $mobile-md) {
+    padding: 10% 0;
+  }
+
+  @media (min-width: $desktop-sm) {
+    padding: 2% 0 5%;
+    font-size: 1rem;
+  }
 }
 
 .attribution {
@@ -102,6 +167,15 @@
   right: 0;
   padding: 5% 0;
   text-align: center;
+
+  @media (min-width: $mobile-md) {
+    padding: 2% 0;
+  }
+
+  @media (min-width: $desktop-sm) {
+    padding: 1% 0;
+    font-size: 0.9rem;
+  }
 }
 .attribution a {
   color: $bright-blue;
