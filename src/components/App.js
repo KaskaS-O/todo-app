@@ -71,8 +71,17 @@ class App extends Component {
     const tasks = this.state.tasks;
     const index = tasks.findIndex((task) => task.title === title);
     tasks[index].active = !tasks[index].active;
+
+    const selectedFilter = this.filters.find((filter) => filter.selected);
+    let filteredTasks = this.state.filteredTasks;
+    if (selectedFilter.id === "activeTasks") {
+      filteredTasks = tasks.filter((task) => task.active);
+    } else {
+      filteredTasks = tasks;
+    }
     this.setState({
       tasks,
+      filteredTasks,
     });
   }
 
@@ -100,8 +109,18 @@ class App extends Component {
 
   clearCompleted() {
     const tasks = this.state.tasks.filter((task) => task.active);
+    let filteredTasks = this.state.filteredTasks;
+    const selectedFilter = this.filters.find((filter) => filter.selected);
+
+    if (selectedFilter.id === "completedTasks") {
+      filteredTasks = "";
+    } else {
+      filteredTasks = tasks;
+    }
+
     this.setState({
       tasks,
+      filteredTasks,
     });
   }
 

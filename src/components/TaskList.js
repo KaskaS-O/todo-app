@@ -5,17 +5,23 @@ import FilterPanel from "./FilterPanel";
 
 const TaskList = (props) => {
   let tasks = props.tasks;
+  const selectedFilter = props.filters.find((filter) => filter.selected);
+
   if (!props.filteredTasks) {
-    tasks = props.tasks.map((task) => (
-      <Task
-        key={task.title}
-        title={task.title}
-        active={task.active}
-        theme={props.theme}
-        delete={props.delete}
-        checkbox={props.checkbox}
-      />
-    ));
+    if (selectedFilter.id === "completedTasks") {
+      tasks = "";
+    } else {
+      tasks = props.tasks.map((task) => (
+        <Task
+          key={task.title}
+          title={task.title}
+          active={task.active}
+          theme={props.theme}
+          delete={props.delete}
+          checkbox={props.checkbox}
+        />
+      ));
+    }
   } else {
     tasks = props.filteredTasks.map((task) => (
       <Task
