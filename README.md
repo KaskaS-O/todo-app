@@ -12,10 +12,8 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -54,10 +52,6 @@ Users should be able to:
 This was a good project to learn further about data-flow in React. Creating a todo list which allows you to manage the tasks, filter them by different criteria, add and delete tasks was challenging. Different methods required to use data from another method, changing the state of app on many different ways.
 
 There were some CSS tricks required as well - the biggest difficulty was to style a checkbox border with linear gradient (some useful article on the subject can be found in Useful resources section).
-
-### Continued development
-
-My plan is to add drag and drop functionality to the list. I'm going to use some external library, probably react-beautiful-dnd. In the beginning I wanted to use HTML dnd API, but it's not easy to implement it in React (and why reinvent the wheel?). Probably using the library will require to modify the structure of component, which is why I chose not to do it at once.
 
 ### Useful resources
 
