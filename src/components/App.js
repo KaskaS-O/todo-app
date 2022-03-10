@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { DragDropContext } from "react-beautiful-dnd";
 import TaskList from "./TaskList";
 import { ReactComponent as Sun } from "../images/icon-sun.svg";
 import { ReactComponent as Moon } from "../images/icon-moon.svg";
@@ -6,17 +7,22 @@ import { ReactComponent as Moon } from "../images/icon-moon.svg";
 class App extends Component {
   state = {
     tasks: [
-      { title: "Jog around the park", active: false },
-      { title: "10 minutes meditation", active: true },
-      { title: "Read for 1 hour", active: true },
-      { title: "Pick up groceries", active: true },
-      { title: "Complete Todo App on Frontend Mentor", active: true },
-      { title: "Cook something delicious", active: false },
-      { title: "Do something creative", active: false },
-      { title: "Rest", active: true },
+      { id: "task-1", title: "Jog around the park", active: false },
+      { id: "task-2", title: "10 minutes meditation", active: true },
+      { id: "task-3", title: "Read for 1 hour", active: true },
+      { id: "task-4", title: "Pick up groceries", active: true },
+      {
+        id: "task-5",
+        title: "Complete Todo App on Frontend Mentor",
+        active: true,
+      },
+      { id: "task-6", title: "Cook something delicious", active: false },
+      { id: "task-7", title: "Do something creative", active: false },
+      { id: "task-8", title: "Rest", active: true },
     ],
     newTask: "",
     filteredTasks: "",
+    highestUsedTaskNumber: 8,
 
     isThemeDark: true,
   };
@@ -42,24 +48,30 @@ class App extends Component {
 
   addTask(e) {
     e.preventDefault();
+    let newTaskNumber = this.state.highestUsedTaskNumber + 1;
 
     if (this.state.newTask.length < 3) {
       alert("New task must have at least 3 letters");
     } else {
       const newTasks = this.state.tasks.push({
+        id: `task-${newTaskNumber}`,
         title: this.state.newTask,
         active: true,
       });
+
+      newTaskNumber++;
+
       this.setState({
         task: newTasks,
         newTask: "",
+        highestUsedTaskNumber: newTaskNumber,
       });
     }
   }
 
-  deleteTask(title) {
+  deleteTask(id) {
     let tasks = this.state.tasks;
-    const toDelete = tasks.findIndex((task) => task.title === title);
+    const toDelete = tasks.findIndex((task) => task.id === id);
 
     tasks.splice(toDelete, 1);
     this.setState({
@@ -67,9 +79,9 @@ class App extends Component {
     });
   }
 
-  handleCheckbox(title) {
+  handleCheckbox(id) {
     const tasks = this.state.tasks;
-    const index = tasks.findIndex((task) => task.title === title);
+    const index = tasks.findIndex((task) => task.id === id);
     tasks[index].active = !tasks[index].active;
 
     const selectedFilter = this.filters.find((filter) => filter.selected);
@@ -124,6 +136,26 @@ class App extends Component {
     });
   }
 
+  onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) return;
+    else if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    )
+      return;
+
+    const newTasks = this.state.tasks;
+    const draggedTask = newTasks.find((task) => task.id === draggableId);
+    newTasks.splice(source.index, 1);
+    newTasks.splice(destination.index, 0, draggedTask);
+
+    this.setState({
+      tasks: newTasks,
+    });
+  };
+
   render() {
     return (
       <div className={`page ${this.state.isThemeDark ? "dark" : "light"}`}>
@@ -157,16 +189,18 @@ class App extends Component {
             onChange={this.handleInputChange.bind(this)}
           />
         </form>
-        <TaskList
-          tasks={this.state.tasks}
-          filteredTasks={this.state.filteredTasks}
-          filters={this.filters}
-          theme={this.state.isThemeDark}
-          delete={this.deleteTask.bind(this)}
-          checkbox={this.handleCheckbox.bind(this)}
-          filter={this.filterTaskList.bind(this)}
-          clearCompleted={this.clearCompleted.bind(this)}
-        />
+        <DragDropContext onDragEnd={this.onDragEnd}>
+          <TaskList
+            tasks={this.state.tasks}
+            filteredTasks={this.state.filteredTasks}
+            filters={this.filters}
+            theme={this.state.isThemeDark}
+            delete={this.deleteTask.bind(this)}
+            checkbox={this.handleCheckbox.bind(this)}
+            filter={this.filterTaskList.bind(this)}
+            clearCompleted={this.clearCompleted.bind(this)}
+          />
+        </DragDropContext>
         <p className="txt">Drag and drop to reorder list</p>
         <footer className="attribution">
           Challenge by

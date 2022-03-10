@@ -61,6 +61,7 @@
         border-radius: 50px;
         padding: 1px;
         background: $check-bg;
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
         -webkit-mask: linear-gradient(#fff 0 0) content-box,
           linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -118,6 +119,7 @@
   }
 
   &.dark {
+    background-color: inherit;
     border-bottom: 1px solid;
     @include dark-border;
 
@@ -128,6 +130,7 @@
   }
 
   &.light {
+    background-color: inherit;
     border-bottom: 1px solid;
     @include light-border;
 
