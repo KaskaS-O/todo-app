@@ -47,6 +47,7 @@ Users should be able to:
 - Flexbox
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
+- [beautiful-react-dnd](https://github.com/atlassian/react-beautiful-dnd) - library for beautiful and accessible drag and drop for lists with React
 
 ### What I learned
 
@@ -61,6 +62,8 @@ My plan is to add drag and drop functionality to the list. I'm going to use some
 ### Useful resources
 
 - [Boder with gradient and radius on dev.to](https://dev.to/afif/border-with-gradient-and-radius-387f) - This helped me to handle CSS border-image property and adjust it to create rounded border with linear gradient as background.
+
+- [Beautiful and Accessible Drag and Drop with react-beautiful-dnd](beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd) - A very useful course of using beautiful-react-dnd library. Presents the basics of lib usage and main features.
 
 ## Author
 
